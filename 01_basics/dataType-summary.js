@@ -35,3 +35,30 @@ console.log(typeof bigNumber);
 myfunction();
 console.log("function:",typeof myfunction)
 console.log("anotherId:",typeof anotherId)
+
+
+
+
+// *********************************************************************
+// Stack (Primitive) Memory [copy] ,
+//  Heap (Non-Primitive) [Reference -> changes on original value]
+
+let myYoutubename="Himanshudotcom"
+
+let anothername = myYoutubename
+anothername = "chaiaurcode"
+
+console.log("myYoutubename : ",myYoutubename);
+console.log("anothername : ", anothername)
+
+let userOne = {
+    email:"user@google.com",
+    upi:"user@ybl"
+}
+
+let userTwo = userOne
+
+userTwo.email = 'himanshu@google.com'
+console.log(userOne.email);
+console.log(userTwo.email);
+
