@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+    <style>
+        body{
+            background-color: #212121;
+        }
+        .bg-black{
+            background-color: #212121;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-black">
+        <h1 class="heading">DOM learning on chai aur code</h1>
+        <h2>Lorem dnf e gog akagmg kajga</h2>
+        <h2>Lorem dnf e gog akagmg kajga</h2>
+        <h2>Lorem dnf e gog akagmg kajga</h2>
+        <p>Lorem ipsum dolor sit mekt.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">Two</li>
+            <li class="list-item">Third</li>
+            <li class="list-item">Four</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    //browser  -> DOM MODELS
+    // use all these thing in the browser
+
+    //if u want to access links from the web page
+    console.log(document.links[2])
+
+    document.getElementById('title')// select element from id
+    document.getElementById('title').innerHTML = "<h1> Chai aur Code<h1/>"
+
+    document.getElementById('title').id
+    document.getElementById('title').className
+    document.getElementById('title').getAttribute('id')
+    document.getElementById('title').getAttribute('class')
+
+
+    document.getElementById('title').setAttribute('class','test')
+    document.getElementById('title').setAttribute('class','test','heading')
+
+
+    const title = document.getElementById('title')
+
+    title 
+    title.style.backgroundColor = 'Green'
+    title.style.padding = '15px'
+    title.style.borderRadius = '5px'
+
+    //adding content 
+    //text nikaal raha hu 
+    title.textContent// sare text ayenge jo bhi css se hata diya hai hai wo bhi
+    title.innerHTML // iseme pure text ke saath saath html ki value bhi deta hai
+    title.innerText  // jo display par visible hai wo text ayega
+
+    document.getElement.ByClassName('heading')
+
+    //query Selector
+    document.querySelector('h1');
+    document.querySelector('h2');
+    document.querySelector('#title');
+    document.querySelector('.heading');
+    document.querySelector('input[type="password"]');
+    document.querySelector('p:first-child');
+
+    document.querySelector('ul');
+    const myul = document.querySelector('ul');
+    myul.querySelector('li')
+
+    const turnGreen = myul.querySelector('li')
+    turnGreen.style.background = "green"
+    turnGreen.style.padding = "10px"
+    turnGreen.innerText = "five"
+
+
+    document.querySelectorAll('li')
+    // const tempLiList = document.querySelectorAll('li')
+    //tempLiList ik nodelist hai jo array ki tarah dikhti hai but array nhi hai
+    // array me map lag jata hai but nodelist me map nhi lagta hai
+    //Hence forEach loop lagate hai
+    const tempLiList = document.querySelectorAll('li')
+
+    tempLiList.style.color='green'//error
+    tempLiList[0].style.color='green'// green
+
+    tempLiList
+    // tempLiList.forEach(function (l) {})
+
+    tempLiList.forEach(function (l) {
+        l.style.backgroundColor = 'green'
+    })
+
+    //**--- */
+    const myH2 = document.querySelectorAll('h')
+
+    myH2.forEach(function(h){
+        h.style.color = 'red'
+    })
+
+    myH2.forEach(function(h){
+        h.style.color = 'black';
+        h.style.backgroundColor= 'green';
+        h.style.padding='12px';
+        h.innerText = "Hitesh"
+    })
+    //************** */
+
+    document.getElementsByClassName('list-item')
+
+    const tempClassList = document.getElementsByClassName('list-item')
+
+    tempClassList
+    tempClassList.forEach(function(li){
+        console.log(li)//
+    })
+
+    // convert HTML collection
+    Array.from(tempClassList)
+
+    const myConverted = Array.forEach(function(){
+        li.style.color = 'orange'
+    })
+
+</script>
+</html>
