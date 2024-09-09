@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chaios</title>
+</head>
+<body style="background-color: #212121;color:#fff">
+    
+</body>
+<script>
+    const div = document.createElement('div')
+   // <!-- const div = document.createElement('h1') -->
+    console.log(div);
+    //add properties on div 
+    div.className = 'main'
+   //  div.id='myId'
+   //div.id = Math.random()
+   div.id = Math.random()*10+1
+   div.id = Math.round(Math.random()*10+1)
+   
+   div.setAttribute("title","generated title")
+   // add styling also
+   div.style.backgroundColor = 'green'
+   div.style.padding="12px"
+
+   // div.innerText="Chai aur Code" // 2 round trip
+   // or 
+   // preferable by everyone
+   const addText = document.createTextNode("Chaicode")
+   div.appendChild(addText) // 2 round trip
+
+   // attach on document 
+   document.body.appendChild(div)
+</script>
+</html>
