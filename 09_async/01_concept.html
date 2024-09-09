@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //setTimeout-> koi particular time do aur uss kaam ko ek baar kar dunga bss
+   setTimeout(function(){
+    console.log("Himanshu")
+   },2000)
+
+
+   // setInterval()-> ek particular time leta hai aur uss kaam ko karta hi jaata hai
+   const sayHitesh = function(){
+     console.log("Hitesh")
+   }
+   //document.querySelector('h1').innerHTML="best JS series"
+    //setTimeout(sayHitesh , 2000)
+    
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best JS series"
+    }
+    setTimeout(changeText , 2000)// only reference 'sayHitesh' dena hai na ki execute karna hai ->'sayHitesh()'
+
+    // clearTimeout() -> wants reference which you want to clear
+    
+    //const changeMe = setTimeout(changeText,2000)
+    //clearTimeout(changeMe)
+
+    const changeMe = setTimeout(changeText,2000)
+    document.querySelector('#stop')
+    addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("Stopped")
+    })
+</script>
+</html>
