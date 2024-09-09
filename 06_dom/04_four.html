@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey-ChaiCode</title>
+</head>
+<body style="background-color: #212121;color:#fff">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+   // add list item - select parent and add one list item
+   // there is diff language to add list item hence we have make a function
+
+   // WAY ONE-----------------
+    function addLanguage(langName){
+        // create list item and hold it into variable
+        const li = document.createElement('li');
+        // innerHTML daal do
+        li.innerHTML=`${langName}`
+        // attach on language - ul
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+
+    //SECOND WAY - optimize way----------------
+
+    function addOptiLanguage(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('Java')
+
+    //** prefer- appendChild over innerHTML
+
+    //Edit-------------------------------------
+    const secondLang = document.querySelector("li:nth-child(2)")// study - nth-child
+    secondlang.innerHTML = "mojo" // it works but it is not optimized
+    console.log(secondLang);
+
+    // second approach
+
+    const newli = document.createElement('li')
+    newli.textContent="MOjo"
+    secondLang.replaceWith(newli)
+
+    // edit - another eg-----------
+   // javascript ko replace karna hai typescrypt se 
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+
+    // remove---------------
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>
+
+<!-- //innerHTML ke case me pure tree ki traverseing hoti hai which is not good -->
+<!-- // too uski jagah apr appendChild use karna much better -->
