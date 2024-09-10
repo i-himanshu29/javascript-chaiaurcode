@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body style="background-color:#313131">
+   <button id="orange">Orange</button>
+   <button id="green">Green</button>
+</body>
+
+
+<script>
+
+   
+    /*function init() {
+       let name = "Mozilla"; // name is a local variable created by init
+        function displayName() {
+          // displayName() is the inner function, that forms the closure
+          console.log(name); // use variable declared in the parent function
+        }
+        displayName();
+    }
+    init(); */
+
+
+    //lexical scoping --------------------
+
+    // lexical scoping definition
+    //init() creates a local variable called name and a function called displayName().
+    // The displayName() function is an inner function that is defined inside init() 
+    //and is available only within the body of the init() function. Note that the displayName()
+    // function has no local variables of its own. However, since inner functions have access to the variables of outer scopes,
+    // displayName() can access the variable name declared in the parent function, init().
+
+   /* function outer(){
+        let username = "hitesh"
+        console.log("outer",secret)// bade choto se kuch nhi maang sakte
+        function inner(){
+            let secret = 'my123'
+            console.log("inner",username);
+        }
+        function innerTwo(){
+            console.log("innerTwo",username);
+            console.log(secret)// parents se kuch bhi le sakte ho but bhai bhai apas me kuch bhi share nhi karenge 
+        }
+        inner()
+        innerTwo()
+    }
+    outer()
+    console.log("Too outer",username)
+    */
+
+    
+    //clouser -> sir ka eg.
+    //closure-------------
+    //A closure is the combination of a function bundled together 
+    //(enclosed) with references to its surrounding state (the lexical environment).
+    // In other words, a closure gives a function access to its outer scope.
+    // In JavaScript, closures are created every time a function is created, at function creation time.
+    
+
+    function makeFun(){
+        const name = "Mozilla";
+        function displayName(){
+            console.log(name);
+        }
+        return displayName;//complete memory(lexical scope) share hoti hai na ki function ka executional context
+    }
+    const myFun = makeFun();
+    myFun();
+      
+</script>
+
+
+<script>
+    document.getElementById("orange").onclick=function()
+    {
+        document.body.style.backgroundColor=`orange`
+    }
+    document.getElementById("green").onclick=function()
+    {
+        document.body.style.backgroundColor=`green`
+    }
+
+
+    //*******************
+    // ye ek real world issue use case senario hai jaha closure ne hame bachaya hai
+    //Eg. 
+    //lexical scope hai iseliye ye saare kaam kar pa raha hu
+    
+    function clickHandler(color){
+       // document.body.style.backgroundColor = `${color}`
+       return function(){
+        document.body.style.backgroundColor = `${color}`
+       }
+    }
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+
+
+</script>
+</html>
